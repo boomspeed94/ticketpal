@@ -1,0 +1,7 @@
+sc/cmd.txt
+sc/.gradle
+sc/.idea
+sc/*/build
+
+
+.idea
