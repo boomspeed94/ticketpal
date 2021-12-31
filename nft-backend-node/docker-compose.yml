@@ -1,0 +1,27 @@
+version: "3.1"
+services:
+  postgres:
+    image: "postgres:14"
+    restart: 'no'
+    container_name: nft-postgres
+    networks:
+      - nft-test
+    environment:
+      POSTGRES_USER: nft_user
+      POSTGRES_PASSWORD: nft_passwd
+      POSTGRES_DB: nft_database
+    volumes:
+      - .data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-h", "localhost" ]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+    ports:
+      - 5432:5432
+
+networks:
+  nft-test:
+    driver: bridge
+    ipam:
+      driver: default
