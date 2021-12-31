@@ -1,0 +1,14 @@
+.m-dropdown {
+  position: relative;
+  display: flex;
+  outline: none;
+  $root: &;
+
+  &_trigger {
+    display: flex;
+  }
+
+  &_items {
+    position: absolute;
+  }
+}

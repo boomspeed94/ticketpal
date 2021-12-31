@@ -1,0 +1,25 @@
+.m-modalheader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .m-heading {
+    color: $COLOR-BG;
+  }
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .a-button,
+  .a-button-icon {
+    background-color: transparent;
+  }
+
+  // &-closeonly {
+  //   width: auto;
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 10px;
+  // }
+}

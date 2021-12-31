@@ -1,0 +1,26 @@
+.m-buttoncontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .a-button {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-column {
+    flex-direction: column;
+
+    .a-button {
+      margin: 0 0 10px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

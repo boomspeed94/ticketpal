@@ -1,0 +1,290 @@
+.o-header {
+  $root: &;
+  transition: 0.2s;
+  width: 100%;
+  height: calc(#{$HEADER-PC-HEIGHT} + 10px);
+  margin: 26px 0 32px 0;
+  .m-tooltip > div {
+    background: transparent;
+  }
+
+  .login-link {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    padding-left: 32px;
+
+    .a-link {
+      color: $COLOR-HEAD-TXT;
+      font-size: 32px;
+      font-family: 'CodeNext';
+      letter-spacing: 3px;
+      padding: 0 20px;
+    }
+
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .o-header_main {
+    .menu {
+      display: inline;
+    }
+  }
+
+  .menu-open {
+    .m-sidebar {
+      left: 0;
+    }
+
+  }
+
+  .menu-close {
+    .m-sidebar {
+      left: -280px;
+    }
+  }
+
+  &.u-sticky {
+    position: fixed;
+    z-index: z('header');
+    left: 0;
+    top: 0;
+    margin: 0;
+    display: flex;
+    padding: 0 $PADDING-PC;
+
+    @include sp {
+      padding: 0 $PADDING-SP;
+    }
+
+    @include tab {
+      padding: 0 $PADDING-TAB;
+    }
+
+    .m-heading {
+      margin: 0 10px 0 0;
+    }
+
+    .logo {
+      padding: 0;
+
+      .a-link {
+        margin-left: 40px;
+      }
+    }
+
+    .menu {
+      position: absolute;
+      top: 50%;
+      left: 45px;
+      height: 40px;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      display: inline-block;
+    }
+
+    .o-header_main {
+      .menu {
+        display: none;
+      }
+    }
+
+    .o-header_main {
+      padding: 0;
+
+      .o-header_search {
+        width: 40%;
+      }
+    }
+
+    &:before {
+      content: '';
+      //background-image: url('assets/images/HD.png');
+      background-color: $COLOR-BG;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      width: calc(100% + 15px);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -15px;
+      z-index: z('back');
+
+      @include sp {
+        width: calc(100% + #{$PADDING-SP} * 2);
+        left: -#{$PADDING-SP};
+      }
+
+      @include tab {
+        width: calc(100% + #{$PADDING-TAB} * 2);
+        left: -#{$PADDING-TAB};
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+  }
+
+  &_main {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &_search {
+    margin-right: 26px;
+    width: 420px;
+
+    @include tab {
+      width: 300px;
+    }
+
+    @include sp {
+      width: 100%;
+      margin-right: 8px;
+    }
+  }
+
+  &_menu {
+    flex: 1;
+
+    ul {
+      list-style-type: none;
+    }
+
+    .a-link {
+      text-decoration: underline;
+      color: $COLOR-WHITE;
+      border-bottom: 3px solid $COLOR-WHITE;
+      padding-bottom: 6px;
+      @include u-fz(16, 25);
+      @include u-fw-b();
+    }
+
+    @include sp {
+      display: none;
+
+      #{$root}_hambugermenu & {
+        display: flex;
+        margin: 40px 0;
+      }
+    }
+  }
+
+  &_buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    .a-link {
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+
+    >.a-button {
+      margin-right: 14px;
+
+      &:last-child {
+        margin: 0;
+        width: 165px;
+        justify-content: center;
+
+        @include tab {
+          width: 140px;
+        }
+      }
+    }
+
+    @include sp {
+      display: none;
+
+      #{$root}_hambugermenu & {
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid $COLOR-WHITE;
+        padding: 20px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: calc(100% - #{$PADDING-SP} * 2);
+      }
+    }
+  }
+
+  &_hambuger {
+    display: none;
+
+    @include sp {
+      display: block;
+
+      .a-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &_hambugermenu {
+    display: none;
+
+    @include sp {
+      width: 100%;
+      min-height: 360px;
+      display: block;
+      position: absolute;
+      z-index: z('header');
+      left: 0;
+      top: 0;
+      padding: $PADDING-SP $PADDING-SP 71px $PADDING-SP;
+
+      .a-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & .m-heading {
+      margin: 0;
+    }
+  }
+
+  .m-dropdown {
+    @include sp {
+      display: none;
+    }
+
+    &+.a-button {
+      display: none;
+
+      @include sp {
+        display: block;
+      }
+    }
+  }
+}
+
+.o-header_search {
+  width: 33%;
+}

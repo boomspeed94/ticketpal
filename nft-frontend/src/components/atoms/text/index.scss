@@ -1,0 +1,114 @@
+.a-text {
+  color: $COLOR-UTILITY-TXT-BASE;
+  @include u-fz(16, 25);
+  @include spFixedContent {
+    @include u-fz(15, 25);
+  }
+
+  $root: &;
+
+  &_unit {
+    @include u-fz(12, 25);
+    @include spFixedContent {
+      @include u-fz(11, 25);
+    }
+  }
+
+  &-12 {
+    @include u-fz(12, 18);
+    @include spFixedContent {
+      @include u-fz(11, 16);
+    }
+
+    > #{$root}_unit {
+      @include u-fz(8, 16);
+
+      @include spFixedContent {
+        @include u-fz(7, 14);
+      }
+    }
+  }
+
+  &-14 {
+    @include u-fz(14, 25);
+    @include spFixedContent {
+      @include u-fz(13, 25);
+    }
+
+    > #{$root}_unit {
+      @include u-fz(10, 18);
+      @include spFixedContent {
+        @include u-fz(9, 16);
+      }
+    }
+  }
+
+  &-18 {
+    @include u-fz(18, 25);
+
+    @include spFixedContent {
+      @include u-fz(17, 25);
+    }
+
+    > #{$root}_unit {
+      @include u-fz(14, 25);
+      @include spFixedContent {
+        @include u-fz(13, 25);
+      }
+    }
+  }
+
+  &-24 {
+    @include u-fz(24, 35);
+    @include spFixedContent {
+      @include u-fz(24, 35);
+    }
+  }
+
+  &-28 {
+    @include u-fz(28, 35);
+    @include u-fz(27, 35);
+  }
+
+  &-blue {
+    color: $COLOR-BLUE;
+  }
+
+  &-lightblue {
+    color: $COLOR-BLUE;
+  }
+
+  &-lightgray {
+    color: $COLOR-LIGHTGRAY;
+  }
+
+  &-gray {
+    color: $COLOR-GRAY;
+  }
+
+  &-darkPink {
+    color: $COLOR-BG;
+  }
+
+  &-bold {
+    @include u-fw-b;
+  }
+
+  &-lightbold {
+    @include u-fw-lb;
+  }
+
+  &-active {
+    color: $COLOR-BG;
+    @include u-fw-b;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-error {
+    color: $COLOR-ERROR;
+    @include u-fw-b;
+  }
+}

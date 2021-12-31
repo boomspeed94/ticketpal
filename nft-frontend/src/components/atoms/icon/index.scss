@@ -1,0 +1,18 @@
+.a-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  $icons: 'arrow', 'arrow-down', 'bid', 'close', 'close-modal', 'cross', 'coin', 'hambuger', 'heart', 'heart-active',
+    'more', 'search', 'search-not-found', 'share', 'tick', 'tick-step', 'tick-success', 'top1', 'top2', 'top3',
+    'try-again', 'wallet';
+
+  @each $icon in $icons {
+    &-#{$icon} {
+      background-image: url('assets/images/icon/icon-#{$icon}.svg');
+    }
+  }
+}

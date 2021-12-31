@@ -1,0 +1,155 @@
+.p-explore {
+  &_main {
+    min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px );
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_productfilter {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include tab {
+      padding-left: 20px;
+    }
+    @include sp {
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &_products {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_totalvolume {
+    display: flex;
+    align-items: center;
+
+    @include sp {
+      align-items: initial;
+      flex-direction: column;
+    }
+
+    .m-heading {
+      flex: 1;
+      margin: 0;
+      @include sp {
+        @include u-fz(18, 18);
+      }
+    }
+
+    .a-button {
+      color: $COLOR-CYAN;
+      padding: 0 5px;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    .m-dropdownmenu {
+      width: 100px;
+    }
+  }
+
+  &_total {
+    color: $COLOR-CYAN;
+    @include u-fw-b;
+    @include u-fz(32, 32, 0);
+
+    @include sp {
+      align-self: flex-end;
+    }
+
+    > span {
+      margin-left: 5px;
+      @include u-fz(20, 20, 0);
+
+      @include sp {
+        @include u-fz(18, 18, 0);
+      }
+    }
+  }
+
+  // &_rankingfilter {
+  //   display: flex;
+  //   margin-bottom: 30px;
+
+  //   .m-dropdown {
+  //     margin-right: 10px;
+
+  //     .m-dropdownmenu {
+  //       width: 103px;
+  //     }
+
+  //     &:last-child {
+  //       .m-dropdownmenu {
+  //         width: 120px;
+  //       }
+  //     }
+  //   }
+
+  //   .m-dropdownmenu {
+  //     padding: 12px 18px;
+  //   }
+
+  //   .m-heading {
+  //     margin: 0 5px 0 0;
+  //   }
+
+  //   .a-icon {
+  //     width: 12px;
+  //     height: 7px;
+  //     margin-left: 7px;
+  //   }
+  // }
+
+  // &_ranking {
+  //   @include tab {
+  //     padding: 30px 25px;
+  //   }
+
+  //   @include sp {
+  //     padding: 25px 15px;
+  //   }
+  // }
+
+  // &_leaderboard {
+  //   @include spFixedContent {
+  //     overflow: auto;
+  //   }
+  // }
+
+  // &_userlist {
+  //   display: flex;
+  //   justify-content: space-between;
+
+  //   @include tab {
+  //     min-width: 720px;
+  //   }
+
+  //   @include sp {
+  //     width: 900px;
+  //   }
+  // }
+
+  // &_col {
+  //   display: flex;
+  //   flex-direction: column;
+
+  //   &:last-child {
+  //     margin-right: 0;
+  //   }
+
+  //   .m-userrank {
+  //     margin-bottom: 10px;
+
+  //     &:last-child {
+  //       margin-bottom: 0;
+  //     }
+  //   }
+  // }
+}

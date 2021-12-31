@@ -1,0 +1,29 @@
+.a-link {
+  padding: 0;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &-asText {
+    color: $COLOR-UTILITY-TXT-BASE;
+
+    &:hover {
+      color: $COLOR-BLUE;
+    }
+  }
+
+  &-user {
+    color: $COLOR-GRAY;
+
+    @include u-fz(14, 25);
+    @include u-fw-b();
+
+    &:hover {
+      color: $COLOR-UTILITY-TXT-BASE;
+      opacity: 1;
+    }
+  }
+}

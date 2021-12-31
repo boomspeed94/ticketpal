@@ -1,0 +1,119 @@
+/*
+🌟 common mixins
+*/
+/*
+convert line-height & letter-spacing px values into relative value.
+px-based values can be extracted from Abstract. Always use this to define line-height & letter-spacing
+If cutLineSpace=true, the spacing the top of first-line & the bottom of last-line caused by line-height will be killed.
+--------------------------------------------------------- */
+@mixin u-fz($fontSizePx: false, $lineHeightPx: false, $letterSpacingPx: false, $cutLineSpace: false) {
+  @if ($fontSizePx) {
+    font-size: $fontSizePx + px;
+  }
+
+  @if ($lineHeightPx) {
+    line-height: ($lineHeightPx / $fontSizePx);
+  }
+
+  @if ($letterSpacingPx) {
+    letter-spacing: ($letterSpacingPx / $fontSizePx) + em;
+  }
+
+  @if ($cutLineSpace) {
+    &:before,
+    &:after {
+      display: block;
+      overflow: hidden;
+      content: '';
+    }
+
+    $_marginVal: ($lineHeightPx - $fontSizePx) * -0.5;
+
+    &:before {
+      margin-bottom: $_marginVal + px;
+    }
+
+    &:after {
+      margin-top: $_marginVal + px;
+    }
+  }
+}
+
+@mixin u-fw-b {
+  font-weight: 700;
+}
+
+@mixin u-fw-lb {
+  font-weight: 600;
+}
+
+@mixin u-fw-n {
+  font-weight: 300;
+}
+
+@mixin u-ff-basic {
+  font-family: $FONTFAMILY-BASIC;
+}
+/* ellipsis with
+--------------------------------------------------------- */
+@mixin ellipsisInline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin pc-large() {
+  @media (min-width: $WIDTH-PC-LARGE) {
+    @content;
+  }
+}
+
+@mixin pc() {
+  @media (min-width: $WIDTH-PC + 1px) {
+    @content;
+  }
+}
+
+@mixin pcFixedContent() {
+  @media (min-width: 1204px) {
+    @content;
+  }
+}
+
+@mixin tab() {
+  @media (min-width: $WIDTH-XS) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin sp() {
+  @media (max-width: $WIDTH-XS - 1px) {
+    @content;
+  }
+}
+
+@mixin spFixedContent() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin customScrollbar() {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 2.5px;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $COLOR-LIGHTGRAY;
+    border-radius: 2.5px;
+  }
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $COLOR-GRAY;
+    opacity: 0.7;
+  }
+}

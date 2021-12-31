@@ -1,0 +1,94 @@
+.a-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 15px;
+  color:white;
+  background-color: $COLOR-BTN;
+  border-radius: 5px;
+  text-decoration: none;
+  @include u-fw-b;
+  @include u-fz(16, 25, 1);
+
+  @include spFixedContent {
+    @include u-fz(14, 25, 0.5);
+  }
+
+  &:not(:disabled):hover {
+  }
+
+  &-secondary {
+    color: $COLOR-LIGHTBLUE;
+    @include u-fz(16, 25);
+  }
+
+  &-asText {
+    width: 100%;
+    height: auto;
+    color: $COLOR-UTILITY-TXT-BASE;
+    background-color: transparent;
+    border: 0;
+    letter-spacing: 0;
+    @include u-fw-lb;
+  }
+
+  &-icon {
+    border-radius: 5px;
+    padding: 5px;
+    width: 42px;
+    .a-icon {
+      width: 24px;
+      height: 24px;
+      filter: invert(1);
+    }
+
+    &:hover {
+    }
+  }
+
+  &-buy {
+    background: $COLOR-BG;
+    color: $COLOR-WHITE;
+    min-width: 108px;
+    height: 36px;
+    border-radius: 5px;
+  }
+
+  &-bid {
+    background: $COLOR-PINK200;
+    color: $COLOR-BG;
+    min-width: 108px;
+    height: 42px;
+    border-radius: 5px;
+  }
+
+  &-asLink {
+    height: 0;
+    padding: 0;
+    @include u-fz(16, 25);
+  }
+
+  &-noPadding {
+    padding: 0;
+  }
+
+  &-noBackground {
+    color: $COLOR-WHITE;
+    background-color: transparent;
+    border: 1px solid $COLOR-WHITE;
+  }
+
+  &-noBorder {
+    border: 0;
+  }
+
+  &:disabled {
+    background-color: $COLOR-LIGHTGRAY;
+    color: $COLOR-WHITE;
+    cursor: auto;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}

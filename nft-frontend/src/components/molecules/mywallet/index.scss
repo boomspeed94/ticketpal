@@ -1,0 +1,132 @@
+.m-mywallet {
+  $root: &;
+
+  border-radius: 25px;
+  width: 330px;
+  min-height: 360px;
+  background-color: $COLOR-BG;
+  background-image: linear-gradient(360deg, $COLOR-BG 0%, #000000 74%);
+  // background-color: #000000;
+  // background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%); 
+  padding: 10px;
+  color: white;
+
+  .title {
+    font-size: 22px;
+    margin-top: 20px;
+    img {
+      margin-right: 6px;
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .copy {
+    filter: invert(1);
+  }
+  .network-name {
+    font-size: 12px;
+  }
+  .balance {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .avatar {
+    margin: 10px 0;
+    filter: invert(1);
+  }
+  .address {
+    margin-left: 40px;
+  }
+
+  .m-tablist {
+    margin-bottom: 5px;
+    justify-content: space-around;
+    margin-right: 0;
+
+    & .a-button {
+      padding: 0 0 10px;
+    }
+
+    & .m-tabbutton-active {
+      &:after {
+        @include sp {
+          background-color: #1D1B22;
+        }
+      }
+    }
+
+    & .a-text {
+      @include sp {
+        color: $COLOR-WHITE;
+      }
+    }
+  }
+
+  &_cards {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &_cardwrapper {
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  &_card {
+    position: relative;
+    transition: 0.2s transform ease-in-out;
+
+    #{$root}-bnb & {
+      transform: translateX(-100%);
+    }
+
+    .a-card-bnb {
+      left: 100%;
+      position: absolute;
+      top: 0;
+    }
+
+    #{$root}-cont & {
+      transform: translateX(-200%);
+    }
+
+    .a-card-cont {
+      left: 200%;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &-open {
+    display: block;
+  }
+
+  &_disconnect {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    > .a-button {
+      height: 38px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &-fullwidth {
+    width: 100%;
+    min-height: 0;
+    background-color: transparent;
+    padding: 12px;
+    box-shadow: none;
+
+    .a-card {
+      padding: 40px 72px 42px 24px;
+    }
+  }
+}

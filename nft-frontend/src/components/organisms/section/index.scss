@@ -1,0 +1,32 @@
+.o-section {
+  margin-bottom: 30px;
+  background-color: $COLOR-WHITE;
+  border-radius: 5px;
+  box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
+  padding: 32px 42px;
+
+  @include tab {
+    padding: 25px 30px;
+  }
+
+  @include sp {
+    padding: 32px 15px;
+  }
+
+  &-usediv {
+    box-shadow: none;
+  }
+
+  &-nobackground {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &-nopadding {
+    padding: 0;
+  }
+
+  &-nomargin {
+    margin: 0;
+  }
+}

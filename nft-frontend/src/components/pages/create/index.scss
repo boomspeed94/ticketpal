@@ -1,0 +1,127 @@
+.p-create {
+  &_main {
+    padding: 40px 59px;
+
+    @include sp {
+      padding: 20px;
+    }
+
+    & > .m-heading {
+      margin-bottom: 30px;
+      @include sp {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &_center {
+    display: flex;
+    justify-content: center;
+  }
+  &_waiting {
+    margin-top: 16px;
+    color: $COLOR-BG;
+  }
+
+  &_form {
+    display: flex;
+    justify-content: space-between;
+
+    @include spFixedContent {
+      flex-flow: column-reverse;
+    }
+  }
+
+  &_inputs {
+    width: 100%;
+    max-width: 540px;
+    min-width: 400px;
+    margin-right: 50px;
+
+    @include spFixedContent {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    @include sp {
+      min-width: 100%;
+    }
+  }
+
+  &_instantsale {
+    .a-select {
+      width: 30%;
+      min-width: 90px;
+    }
+  }
+
+  &_description {
+    .a-textarea {
+      height: 130px;
+    }
+  }
+
+  &_review {
+    position: relative;
+    .o-productcard_media{
+      margin-top: 25px;
+    }
+  }
+
+  &_reviewbox {
+    position: sticky;
+    top: calc(#{$HEADER-PC-HEIGHT} + 40px);
+    left: 0;
+
+    @include spFixedContent {
+      position: initial;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    @include sp {
+      margin-bottom: 20px;
+    }
+  }
+
+  &_collections {
+    display: flex;
+
+    .m-collection {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+  }
+
+  &_addcollection {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid $BORDER-TEXTFIELD-COLOR;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+    > span {
+      color: $COLOR-CYAN;
+      @include u-fw-b();
+
+      &:first-child {
+        @include u-fz(18, 25);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $COLOR-WHITE;
+        box-shadow: 0 1px 4.85px 0.15px rgba(0, 0, 0, 0.15);
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.m-tooltip {
+  >div {
+    background: $COLOR_WHITE;
+    box-shadow: 0 2px 9px 0 $BOXSHADOW-BASIC;
+  }
+  /* stylelint-disable-next-line selector-class-pattern */
+  & .__react_component_tooltip.show {
+    padding: 0;
+    border-radius: 5px;
+    display: block;
+    opacity: 1;
+
+    &:after {
+      display: none;
+    }
+  }
+  /* stylelint-disable-next-line selector-class-pattern */
+  & .__react_component_tooltip {
+    display: none;
+  }
+
+  &-boxshadow {
+    /* stylelint-disable-next-line selector-class-pattern */
+    & .__react_component_tooltip.show {
+      // box-shadow: 0 2px 9px 0 $BOXSHADOW-BASIC;
+      padding: 8px 15px;
+    }
+  }
+}

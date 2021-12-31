@@ -1,0 +1,68 @@
+.o-exploremenu {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  @include sp {
+    padding-bottom: 35px;
+  }
+
+  &_category {
+    display: flex;
+
+    @include spFixedContent {
+      display: block;
+    }
+
+    @include sp {
+      width: 100%;
+    }
+
+    .m-heading {
+      margin-right: 20px;
+
+      @include sp {
+        padding-left: 10px;
+      }
+    }
+
+    .m-dropdownmenu {
+      width: 320px;
+      left: 0;
+      padding: 15px 21px;
+      @include spFixedContent {
+        width: 280px;
+      }
+    }
+
+    .m-dropdown_items {
+      @include sp {
+        top: 100%;
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &_tabs {
+    @include sp {
+      overflow: auto;
+      margin-left: 10px;
+    }
+  }
+
+  &_filter {
+    .m-dropdownmenu {
+      width: 220px;
+      @include spFixedContent {
+        width: 180px;
+      }
+    }
+
+    @include spFixedContent {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
