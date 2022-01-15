@@ -116,6 +116,10 @@ export const View: React.FC<RouteComponentProps> = props => {
   };
 
   const buyTicket = async () => {
+    if(!localStorage.getItem('token')) {
+      toast.error('You need to login first!');
+      return;
+    }
     if (product.orderId) {
       try {
         const txHash = await buyNft({ orderId: product.orderId, priceICX: product.priceICX }, address);

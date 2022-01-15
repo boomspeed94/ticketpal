@@ -71,7 +71,15 @@ export const Home: React.FC<RouteComponentProps> = props => {
               <img
                 max-height="400px"
                 width="100%"
-                src="https://media-cdn.laodong.vn/storage/newsportal/2020/12/5/859890/Blackpink.jpg?w=960&crop=auto&scale=both"
+                src="https://pbs.twimg.com/media/FJEyWSIWQAgP-3v?format=jpg&name=4096x4096"
+                alt="blockchain"
+              ></img>
+            </div>
+            <div className="slider-cover">
+              <img
+                max-height="400px"
+                width="100%"
+                src="https://wallpaperaccess.com/full/1099678.jpg"
                 alt="blackpink"
               ></img>
             </div>
@@ -79,23 +87,15 @@ export const Home: React.FC<RouteComponentProps> = props => {
               <img
                 max-height="400px"
                 width="100%"
-                src="https://images.tkbcdn.com/1/780/300/Upload/eventcover/2021/11/06/12B6A3.jpg"
-                alt="iu"
-              ></img>
-            </div>
-            <div className="slider-cover">
-              <img
-                max-height="400px"
-                width="100%"
                 src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/04/10/16180452817704.jpg"
-                alt="bts"
+                alt="br"
               ></img>
             </div>
             <div className="slider-cover">
               <img
                 max-height="400px"
                 width="100%"
-                src="https://images.tkbcdn.com/1/1560/600/Upload/eventcover/2021/03/26/718CAC.jpg"
+                src="https://www.teahub.io/photos/full/176-1767757_tecnologa-blockchain.png"
                 alt="mamamoo"
               ></img>
             </div>
