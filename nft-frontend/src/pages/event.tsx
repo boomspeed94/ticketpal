@@ -141,6 +141,10 @@ export const Event: React.FC<RouteComponentProps> = props => {
   };
 
   const buyTicket = async () => {
+    if(!localStorage.getItem('token')) {
+      toast.error('You need to login first!');
+      return;
+    }
     if (creatorAddress && path && creatorAddress !== 'undefined' && path !== 'undefined') {
       try {
         //@ts-ignore

@@ -17,6 +17,7 @@ import { createEvent } from 'services/ICONService';
 import { Modal } from 'components/organisms/modal';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { Spinner } from 'components/atoms/spinner';
+import { toast } from 'react-toastify';
 
 export const Create: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -29,7 +30,12 @@ export const Create: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              createEvent(values, localStorage.getItem('ADDRESS'), setModalOpen);
+              if(localStorage.getItem('token')) {
+                createEvent(values, localStorage.getItem('ADDRESS'), setModalOpen);
+              } else {
+                toast.error('You need to login first!');
+              }
+              
             }}
             validateOnMount
           >
