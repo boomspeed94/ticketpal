@@ -162,8 +162,8 @@ class AssetStore {
       nameCondition = `"name" ILIKE '%' || '${opts.name}' || '%'`;
     }
 
-    condition = `WHERE
-      (${addressCondition ? addressCondition : '1 = 1'})
+    condition = `WHERE evt."endAt" >= '${(new Date()).toISOString()}'
+      AND (${addressCondition ? addressCondition : '1 = 1'})
       AND (${forSaleCondition ? forSaleCondition : '1 = 1'})
       AND (${nameCondition ? nameCondition : '1 = 1'})`;
 

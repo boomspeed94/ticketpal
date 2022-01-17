@@ -10,7 +10,7 @@ type Modifier = 'search';
 interface Props {
   modifiers?: Modifier | Modifier[];
   unit?: string;
-  type?: 'text' | 'tel' | 'password' | 'number' | 'date';
+  type?: 'text' | 'tel' | 'password' | 'number' | 'date' | 'datetime-local';
   placeholder?: string;
   name: string;
   useFormik?: boolean;
@@ -21,7 +21,7 @@ interface Props {
 
 export const Textfield: React.FC<Props> = ({
   modifiers,
-  type,
+  type = '',
   placeholder,
   unit,
   name,
@@ -30,7 +30,7 @@ export const Textfield: React.FC<Props> = ({
   ...props
 }) => {
   const inputProps = {} as any;
-  type == 'date' && (inputProps.min = new Date().toISOString().split('T')[0]);
+  type.includes('date') && (inputProps.min = new Date().toISOString().split('T')[0]);
   return (
     <div className={mapModifiers('a-textfield', modifiers)}>
       <div className="a-textfield_input">
@@ -39,7 +39,7 @@ export const Textfield: React.FC<Props> = ({
         ) : (
           <Field type={type} placeholder={placeholder} name={name} readOnly={readonly} {...inputProps} />
         )}
-        {type !== 'date' && (
+        {!type.includes('date') && (
           <Button
             modifiers="icon"
             handleClick={e => {

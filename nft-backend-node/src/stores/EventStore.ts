@@ -68,6 +68,7 @@ class EventStore {
         Events
       WHERE
         "creatorAddress" = $1 AND "path" = $2;
+      ORDER BY "createAt" DESC
     `;
     const params = [
       creatorAddress,
@@ -151,7 +152,7 @@ class EventStore {
         "id", "name", "path", "imageUrl", "creatorAddress", "metaReference", "createAt", "categories", "amountOfTickets", "description", "availableForSale", "startAt", "endAt", "pricePerTicket", "location", "organizer"
       FROM Events
       ${condition}
-      ORDER BY "startAt" DESC
+      ORDER BY "createAt" DESC
       LIMIT $1
       OFFSET $2;
     `;

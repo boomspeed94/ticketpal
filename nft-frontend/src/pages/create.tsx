@@ -30,12 +30,11 @@ export const Create: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-              if(localStorage.getItem('token')) {
+              if (localStorage.getItem('token')) {
                 createEvent(values, localStorage.getItem('ADDRESS'), setModalOpen);
               } else {
                 toast.error('You need to login first!');
               }
-              
             }}
             validateOnMount
           >
@@ -76,10 +75,10 @@ export const Create: React.FC = () => {
                     </Fieldrow>
                     <div className="horizol">
                       <Fieldrow fieldName="Start Day" name="startDay">
-                        <TextFieldFormik type="date" name="startDay" placeholder="Will be a calendar later" />
+                        <TextFieldFormik type="datetime-local" name="startDay" placeholder="Will be a calendar later" />
                       </Fieldrow>
                       <Fieldrow fieldName="End Day" name="endDay">
-                        <TextFieldFormik type="date" name="endDay" placeholder="Will be a calendar later" />
+                        <TextFieldFormik type="datetime-local" name="endDay" placeholder="Will be a calendar later" />
                       </Fieldrow>
                     </div>
                     <div className="horizol">
