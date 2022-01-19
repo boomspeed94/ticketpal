@@ -6,7 +6,7 @@ import { logger } from '../utils';
 import { ICON_LOOP_UNIT } from '../utils/constant';
 
 const { HttpProvider, IconConverter } = IconService;
-const iconService = new IconService(new HttpProvider(process.env.ICON_API_URL || ''));
+const iconService = new IconService(new HttpProvider(process.env.ICON_API_URL || 'https://sejong.net.solidwallet.io/api/v3'));
 const TRANSACTION_ADD_TO_MARKET_EVENT = 'AddToMarket(Address,int,int,int)';
 const TRANSACTION_REMOVE_FROM_MARKET_EVENT = 'RemoveFromMarket(Address,int,int)';
 

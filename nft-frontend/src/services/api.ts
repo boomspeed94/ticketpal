@@ -65,10 +65,13 @@ export const uploadFile = async (formData: any, address: any) => {
   pdata.append('organizer', formData.organizer);
   pdata.append('path', formData.eventPath);
   pdata.append('amount', formData.quantity);
-  pdata.append('categories', `[]`);
+  pdata.append(
+    'categories',
+    formData.categories && JSON.stringify(formData.categories.map((category: any) => category.name))
+  );
   pdata.append('description', formData.description);
-  pdata.append('startAt', '2021-12-21T15:08:51.555Z');
-  pdata.append('endAt', '2021-12-31T15:08:51.555Z');
+  pdata.append('startAt', formData.startDay);
+  pdata.append('endAt', formData.endDay);
 
   const axiosConfig = {
     headers: {
@@ -172,6 +175,18 @@ export const publishEvent = async (txHash: any, eventPath: any) => {
 export const getEventsByCategory = async (category: any) => {
   try {
     return axios.get(`${apiEndpoint}/api/v1/events`, {
+      params: {
+        categories: `["${category}"]`,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getTicketsByCategory = async (category: any) => {
+  try {
+    return axios.get(`${apiEndpoint}/api/v1/assets`, {
       params: {
         categories: `["${category}"]`,
       },
