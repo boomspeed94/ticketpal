@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 const isBrowser = typeof window !== 'undefined';
-const apiEndpoint = 'http://localhost:3000' || 'https://ticketpal.store';
+const apiEndpoint = 'https://ticketpal.store';
 const axiosConfigWithToken = {
   headers: {
     'Content-Type': 'application/json',
