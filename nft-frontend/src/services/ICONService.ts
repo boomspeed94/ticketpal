@@ -87,7 +87,7 @@ export const loginWithWallet = async (setIsLogin: any) => {
     const callTransactionData = new IconBuilder.MessageTransactionBuilder()
       .from(fromAddress || '')
       .to(fromAddress || '')
-      .stepLimit(IconConverter.toBigNumber(100000))
+      .stepLimit(IconConverter.toBigNumber(1000000))
       .nid(IconConverter.toBigNumber(83))
       .nonce(IconConverter.toBigNumber(1))
       .version(IconConverter.toBigNumber(3))
@@ -188,7 +188,7 @@ export const createEvent = async (data: { quantity: number; eventPath: string },
     .value(IconAmount.of(0.01, IconAmount.Unit.ICX).toLoop())
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('createNFT')
@@ -229,7 +229,7 @@ export const setApproveForAll = async () => {
     .to(NFT_CONTRACT_ADDRESS)
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('setApprovalForAll')
@@ -261,7 +261,7 @@ export const addNftToMarket = async (
     .to(MARKET_CONTRACT_ADDRESS)
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('addToMarket')
@@ -296,7 +296,7 @@ export const addMultipleNFTsToMarket = async (
     .to(MARKET_CONTRACT_ADDRESS)
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('addMultipleToMarket')
@@ -328,7 +328,7 @@ export const removeNftFromMarket = async (data: { orderId: string; tokenId: stri
     .to(MARKET_CONTRACT_ADDRESS)
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('removeFromMarket')
@@ -357,7 +357,7 @@ export const buyNft = async (data: { orderId: string; priceICX: number }, addres
     .value(IconAmount.of(data.priceICX, IconAmount.Unit.ICX).toLoop())
     .nid(NETWORK_ID)
     .timestamp(new Date().getTime() * 1000)
-    .stepLimit(IconConverter.toBigNumber(1000000))
+    .stepLimit(IconConverter.toBigNumber(10000000))
     .version(IconConverter.toBigNumber(3))
     // @ts-ignore
     .method('purchase')
