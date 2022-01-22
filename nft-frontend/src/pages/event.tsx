@@ -141,7 +141,7 @@ export const Event: React.FC<RouteComponentProps> = props => {
   };
 
   const buyTicket = async () => {
-    if(!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token')) {
       toast.error('You need to login first!');
       return;
     }
@@ -265,6 +265,9 @@ export const Event: React.FC<RouteComponentProps> = props => {
                       <div className="p-view_lead">
                         <Text size="14" modifiers="gray">
                           Only {product.amountOfTickets} tickets
+                        </Text>
+                        <Text size="14" modifiers="gray">
+                          Meta: {product.metaReference}
                         </Text>
                         <Text size="14" modifiers="gray">
                           {product.description}
