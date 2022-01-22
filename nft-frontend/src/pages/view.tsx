@@ -36,6 +36,7 @@ export const View: React.FC<RouteComponentProps> = props => {
 
   const [product, setProduct] = useState({} as any);
   const [history, setHistory] = useState([]);
+  const [canResell, setCanReSell] = useState(false);
 
   //const { isApproved, isSuccess, product, isGetDone } = useSelector(getBuyStore);
   const isApproved = false;
@@ -69,11 +70,11 @@ export const View: React.FC<RouteComponentProps> = props => {
   const [modalWaiting, setModalWaiting] = useState(false);
   const [modalResell, setModalResell] = useState(false);
 
-  const canResell =
-    product.ownerAddress === localStorage.getItem('ADDRESS') && !product.availableForSale && !product.orderId;
   useEffect(() => {
     setAddress(localStorage.getItem('ADDRESS') || '');
-
+    setCanReSell(
+      product.ownerAddress === localStorage.getItem('ADDRESS') && !product.availableForSale && !product.orderId
+    );
     const getTicketDetails = async () => {
       const rs = await getTicketByEventAndTokenId(event_id, id);
       if (rs?.data) {
@@ -116,7 +117,7 @@ export const View: React.FC<RouteComponentProps> = props => {
   };
 
   const buyTicket = async () => {
-    if(!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token')) {
       toast.error('You need to login first!');
       return;
     }

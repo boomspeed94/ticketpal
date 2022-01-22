@@ -2,7 +2,7 @@ import express from 'express';
 import { BadRequest } from 'http-errors';
 import Joi from 'joi';
 import { assetController } from '../controllers';
-import { StringSchema } from '../utils/validators';
+import { ArrayStringSchema, StringSchema } from '../utils/validators';
 import { handleRejection } from '../modules/asyncHandler';
 
 const assetRouter = express.Router();
@@ -14,6 +14,7 @@ const assetRouter = express.Router();
     for_sale: Joi.boolean(),
     page: Joi.number(),
     per_page: Joi.number(),
+    categories: ArrayStringSchema.array().items(Joi.string()),
   });
 
   // GET many
@@ -29,6 +30,7 @@ const assetRouter = express.Router();
       name: value.name,
       ownerAddress: value.owner_address,
       forSale: value.for_sale,
+      categories: value.categories,
     };
 
     const page = parseInt(value.page) || 0;

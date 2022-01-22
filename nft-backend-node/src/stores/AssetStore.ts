@@ -7,6 +7,7 @@ export interface AssetQueryOptions {
   name?: string;
   ownerAddress?: string;
   forSale?: boolean;
+  categories?: string[];
 }
 
 class AssetStore {
@@ -139,15 +140,30 @@ class AssetStore {
     let nameCondition = '';
     let joinCondition = '';
     let forSaleQuery = '';
+    let categoriesCondition = '';
 
     if (opts.ownerAddress) {
       addressCondition = `"ownerAddress" = '${opts.ownerAddress}'`;
     }
 
+    if (opts.categories) {
+      opts.categories.forEach(cate => {
+        categoriesCondition += `OR evt."categories" LIKE '%"' || '${cate}' || '"%' `;
+      });
+
+      categoriesCondition = (categoriesCondition.substring(2) || '').trim();
+    }
+
     if (opts.forSale) {
       forSaleQuery = ', evt."creatorAddress", mk."orderId"'
       forSaleCondition = `ast."tokenId" <> 0`;
-      joinCondition = `
+    }
+
+    if (opts.name) {
+      nameCondition = `"name" ILIKE '%' || '${opts.name}' || '%'`;
+    }
+
+    joinCondition = `
       JOIN
         Market mk
       ON mk."tokenId" = ast."tokenId"
@@ -156,13 +172,9 @@ class AssetStore {
       ON
         ast."eventId" = evt."id"
       `;
-    }
-
-    if (opts.name) {
-      nameCondition = `"name" ILIKE '%' || '${opts.name}' || '%'`;
-    }
 
     condition = `WHERE evt."endAt" >= '${(new Date()).toISOString()}'
+      AND (${categoriesCondition ? categoriesCondition : '1 = 1'})
       AND (${addressCondition ? addressCondition : '1 = 1'})
       AND (${forSaleCondition ? forSaleCondition : '1 = 1'})
       AND (${nameCondition ? nameCondition : '1 = 1'})`;

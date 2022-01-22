@@ -8,7 +8,7 @@ import { Heading } from 'components/molecules/heading';
 import { ItemList } from 'components/organisms/itemList';
 import { SearchTabType, SearchTabs } from 'components/pages/search/constant';
 import { Text } from 'components/atoms/text';
-import { searchTickets, searchEvents, getEventsByCategory } from 'services/api';
+import { searchTickets, searchEvents, getEventsByCategory, getTicketsByCategory } from 'services/api';
 import { TabButton } from 'components/molecules/tabButton';
 import { TabList } from 'components/molecules/tabList';
 
@@ -26,7 +26,9 @@ export const View: React.FC<RouteComponentProps> = props => {
       if (category) {
         try {
           const eventsRs = await getEventsByCategory(category);
+          const ticketsRs = await getTicketsByCategory(category);
           setEvents(eventsRs?.data);
+          setTickets(ticketsRs?.data);
         } catch (error) {
           console.log(error);
         }

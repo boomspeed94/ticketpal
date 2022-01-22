@@ -67,7 +67,7 @@ class EventStore {
       FROM
         Events
       WHERE
-        "creatorAddress" = $1 AND "path" = $2;
+        "creatorAddress" = $1 AND "path" = $2
       ORDER BY "createAt" DESC
     `;
     const params = [

@@ -30,7 +30,8 @@ export const Textfield: React.FC<Props> = ({
   ...props
 }) => {
   const inputProps = {} as any;
-  type.includes('date') && (inputProps.min = new Date().toISOString().split('T')[0]);
+  // eslint-disable-next-line no-useless-escape
+  type.includes('date') && (inputProps.min = new Date().toISOString().split(/(\:\d{2}\.)\w+/g)[0]);
   return (
     <div className={mapModifiers('a-textfield', modifiers)}>
       <div className="a-textfield_input">
