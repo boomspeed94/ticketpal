@@ -143,7 +143,7 @@ class AssetStore {
     let categoriesCondition = '';
 
     if (opts.ownerAddress) {
-      addressCondition = `"ownerAddress" = '${opts.ownerAddress}'`;
+      addressCondition = `ast."ownerAddress" = '${opts.ownerAddress}'`;
     }
 
     if (opts.categories) {
@@ -160,7 +160,7 @@ class AssetStore {
     }
 
     if (opts.name) {
-      nameCondition = `"name" ILIKE '%' || '${opts.name}' || '%'`;
+      nameCondition = `ast."name" ILIKE '%' || '${opts.name}' || '%'`;
     }
 
     joinCondition = `
@@ -181,7 +181,7 @@ class AssetStore {
 
     const queryStr = `
       SELECT
-        ast."id", ast."name", ast."slotNo", ast."tokenId", ast."eventId", ast."imageUrl", ast."metaReference", ast."ownerAddress", ast."createAt", ast."lastSale", ast."availableForSale"${forSaleQuery}
+        ast."id", ast."name", ast."slotNo", ast."tokenId", ast."eventId", ast."imageUrl", ast."metaReference", ast."ownerAddress", ast."createAt", ast."lastSale", ast."availableForSale"${forSaleQuery}, evt."creatorAddress"
       FROM Assets ast
       ${joinCondition}
       ${condition}
