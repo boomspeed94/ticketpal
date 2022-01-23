@@ -42,21 +42,6 @@ export const View: React.FC<RouteComponentProps> = props => {
   const isApproved = false;
   const isSuccess = false;
   const isGetDone = true;
-  const productExp = {
-    id: '0',
-    price: 100,
-    upload_file: 'https://media-cdn.laodong.vn/storage/newsportal/2019/12/18/772994/0.jpg',
-    name: 'Barcelona vs Real Madrid',
-    quote_token: 'ICX',
-    description:
-      'Already you can buy your tickets for the two matches that confront to FC Barcelona against Real Madrid in the dates 10 and 29 of LaLiga Santander 2022',
-    category: 'Sport',
-    location: 'the Stadium of the Camp Nou (Barcelona)',
-    status: 'resell',
-    token_id: 1,
-    organizer: 'Camp Nou',
-  };
-
   const balance = 0;
   const productPrice = Number(product?.priceICX) || 0;
   const fee = (Number(productPrice) * Number(process.env.SERVICE_FEE)) / 100;
@@ -72,15 +57,13 @@ export const View: React.FC<RouteComponentProps> = props => {
 
   useEffect(() => {
     setAddress(localStorage.getItem('ADDRESS') || '');
-    setCanReSell(
-      product.ownerAddress === localStorage.getItem('ADDRESS') && !product.availableForSale && !product.orderId
-    );
     const getTicketDetails = async () => {
       const rs = await getTicketByEventAndTokenId(event_id, id);
       if (rs?.data) {
         setProduct(rs?.data);
-      } else {
-        setProduct(productExp);
+        setCanReSell(
+          rs?.data?.ownerAddress === localStorage.getItem('ADDRESS') && !product.availableForSale && !product.orderId
+        );
       }
       const historyRS = await getTransactionsByTokenId(id);
       setHistory(historyRS?.data);
