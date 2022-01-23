@@ -28,7 +28,7 @@ export const View: React.FC<RouteComponentProps> = props => {
           const eventsRs = await getEventsByCategory(category);
           const ticketsRs = await getTicketsByCategory(category);
           setEvents(eventsRs?.data);
-          setTickets(ticketsRs?.data);
+          setTickets(ticketsRs?.data.filter((ticket: any) => ticket.creatorAddress !== ticket.ownerAddress));
         } catch (error) {
           console.log(error);
         }
@@ -37,8 +37,8 @@ export const View: React.FC<RouteComponentProps> = props => {
         try {
           const ticketsRs = await searchTickets(name);
           const eventsRs = await searchEvents(name);
-          setTickets(ticketsRs?.data);
           setEvents(eventsRs?.data);
+          setTickets(ticketsRs?.data.filter((ticket: any) => ticket.creatorAddress !== ticket.ownerAddress));
         } catch (error) {
           console.log(error);
         }
